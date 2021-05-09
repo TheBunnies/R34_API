@@ -37,10 +37,10 @@ namespace R34_API
 
         public List<Item> GetMedia(IEnumerable<string> source)
         {
+            var web = new HtmlWeb();
             var items = new List<Item>();
             foreach(var item in source)
             {
-                var web = new HtmlWeb();
                 var doc = web.Load(item);
 
                 if (IsImage(doc))
