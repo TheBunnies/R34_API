@@ -89,10 +89,10 @@ namespace R34_API
             var doc = web.Load(url);
 
             var pagination = doc.GetElementbyId("content")
-                .SelectSingleNode("//div[@id='post-list']")
-                .SelectSingleNode("//div[@class='content']")
-                .SelectSingleNode("//div[@id='paginator']")
-                .SelectSingleNode("//div[@class='pagination']")
+                ?.SelectSingleNode("//div[@id='post-list']")
+                ?.SelectSingleNode("//div[@class='content']")
+                ?.SelectSingleNode("//div[@id='paginator']")
+                ?.SelectSingleNode("//div[@class='pagination']")
                 .SelectSingleNode("//a[@alt='last page']");
             if (pagination == null) return 1;
             return (int.Parse(pagination.Attributes["href"].Value.Split("=")[4]) + 42) / 42;
